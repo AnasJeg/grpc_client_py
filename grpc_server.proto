@@ -1,0 +1,15 @@
+syntax="proto3";
+option java_package="org.example.grpc_stubs";
+
+service Servertest{
+    rpc TerrainCalcul(TerrainRequest) returns  (TerrainResponse);
+}
+
+message TerrainRequest{
+  double surface=1;
+  double taux=2;
+}
+
+message TerrainResponse{
+      double prix=3;
+}
