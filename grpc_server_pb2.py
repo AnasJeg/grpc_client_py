@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11grpc_server.proto\"/\n\x0eTerrainRequest\x12\x0f\n\x07surface\x18\x01 \x01(\x01\x12\x0c\n\x04taux\x18\x02 \x01(\x01\"\x1f\n\x0fTerrainResponse\x12\x0c\n\x04prix\x18\x03 \x01(\x01\x32@\n\nServertest\x12\x32\n\rTerrainCalcul\x12\x0f.TerrainRequest\x1a\x10.TerrainResponseB\x18\n\x16org.example.grpc_stubsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11grpc_server.proto\">\n\x0eTerrainRequest\x12\r\n\x05label\x18\x01 \x01(\t\x12\x0f\n\x07surface\x18\x02 \x01(\x01\x12\x0c\n\x04taux\x18\x03 \x01(\x01\".\n\x0fTerrainResponse\x12\r\n\x05label\x18\x01 \x01(\t\x12\x0c\n\x04prix\x18\x02 \x01(\x01\x32\xc4\x01\n\nServertest\x12\x32\n\rTerrainCalcul\x12\x0f.TerrainRequest\x1a\x10.TerrainResponse\x12@\n\x19\x43lientStreamTerrainCalcul\x12\x0f.TerrainRequest\x1a\x10.TerrainResponse(\x01\x12@\n\x17\x66ullStreamTerrainCalcul\x12\x0f.TerrainRequest\x1a\x10.TerrainResponse(\x01\x30\x01\x42\x18\n\x16org.example.grpc_stubsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,9 +22,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\026org.example.grpc_stubs'
   _globals['_TERRAINREQUEST']._serialized_start=21
-  _globals['_TERRAINREQUEST']._serialized_end=68
-  _globals['_TERRAINRESPONSE']._serialized_start=70
-  _globals['_TERRAINRESPONSE']._serialized_end=101
-  _globals['_SERVERTEST']._serialized_start=103
-  _globals['_SERVERTEST']._serialized_end=167
+  _globals['_TERRAINREQUEST']._serialized_end=83
+  _globals['_TERRAINRESPONSE']._serialized_start=85
+  _globals['_TERRAINRESPONSE']._serialized_end=131
+  _globals['_SERVERTEST']._serialized_start=134
+  _globals['_SERVERTEST']._serialized_end=330
 # @@protoc_insertion_point(module_scope)

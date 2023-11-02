@@ -3,13 +3,18 @@ option java_package="org.example.grpc_stubs";
 
 service Servertest{
     rpc TerrainCalcul(TerrainRequest) returns  (TerrainResponse);
+    rpc ClientStreamTerrainCalcul(stream TerrainRequest) returns (TerrainResponse);
+    rpc fullStreamTerrainCalcul(stream TerrainRequest) returns (stream TerrainResponse);
+
 }
 
 message TerrainRequest{
-  double surface=1;
-  double taux=2;
+  string label=1;
+  double surface=2;
+  double taux=3;
 }
 
 message TerrainResponse{
-      double prix=3;
+  string label=1;
+      double prix=2;
 }

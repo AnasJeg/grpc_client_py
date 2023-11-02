@@ -19,6 +19,16 @@ class ServertestStub(object):
                 request_serializer=grpc__server__pb2.TerrainRequest.SerializeToString,
                 response_deserializer=grpc__server__pb2.TerrainResponse.FromString,
                 )
+        self.ClientStreamTerrainCalcul = channel.stream_unary(
+                '/Servertest/ClientStreamTerrainCalcul',
+                request_serializer=grpc__server__pb2.TerrainRequest.SerializeToString,
+                response_deserializer=grpc__server__pb2.TerrainResponse.FromString,
+                )
+        self.fullStreamTerrainCalcul = channel.stream_stream(
+                '/Servertest/fullStreamTerrainCalcul',
+                request_serializer=grpc__server__pb2.TerrainRequest.SerializeToString,
+                response_deserializer=grpc__server__pb2.TerrainResponse.FromString,
+                )
 
 
 class ServertestServicer(object):
@@ -30,11 +40,33 @@ class ServertestServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ClientStreamTerrainCalcul(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def fullStreamTerrainCalcul(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ServertestServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'TerrainCalcul': grpc.unary_unary_rpc_method_handler(
                     servicer.TerrainCalcul,
+                    request_deserializer=grpc__server__pb2.TerrainRequest.FromString,
+                    response_serializer=grpc__server__pb2.TerrainResponse.SerializeToString,
+            ),
+            'ClientStreamTerrainCalcul': grpc.stream_unary_rpc_method_handler(
+                    servicer.ClientStreamTerrainCalcul,
+                    request_deserializer=grpc__server__pb2.TerrainRequest.FromString,
+                    response_serializer=grpc__server__pb2.TerrainResponse.SerializeToString,
+            ),
+            'fullStreamTerrainCalcul': grpc.stream_stream_rpc_method_handler(
+                    servicer.fullStreamTerrainCalcul,
                     request_deserializer=grpc__server__pb2.TerrainRequest.FromString,
                     response_serializer=grpc__server__pb2.TerrainResponse.SerializeToString,
             ),
@@ -60,6 +92,40 @@ class Servertest(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Servertest/TerrainCalcul',
+            grpc__server__pb2.TerrainRequest.SerializeToString,
+            grpc__server__pb2.TerrainResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ClientStreamTerrainCalcul(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/Servertest/ClientStreamTerrainCalcul',
+            grpc__server__pb2.TerrainRequest.SerializeToString,
+            grpc__server__pb2.TerrainResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def fullStreamTerrainCalcul(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/Servertest/fullStreamTerrainCalcul',
             grpc__server__pb2.TerrainRequest.SerializeToString,
             grpc__server__pb2.TerrainResponse.FromString,
             options, channel_credentials,
